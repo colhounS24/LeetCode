@@ -26,23 +26,9 @@ n == height.length
 2 <= n <= 105
 0 <= height[i] <= 104
 
-My thinking:
-
-sort the array.
-
-1. brute force attempt. 2 pointers O(N^2)... very slow
-2. good == biggest numbers && largest gap....
-
--- Note
-
-2 pointers, left and right. Then be greedy and move them closer together
-
-It is worth noting that I calcualte the first diff, then greedy algo the rest of the way
-
-
 """
 class Solution:
-    def maxArea(height: list[int]) -> int:
+    def maxArea(self,height: list[int]) -> int:
         # Set the max to the initial container.
         largest_area = min(height[0], height[len(height)-1]) * (len(height)-1)
         
@@ -51,9 +37,8 @@ class Solution:
         rh_pointer = len(height) -1
 
         while rh_pointer > lh_pointer:
-            # So the area is already reducing, all that I care about is if it improves the min
 
-            if height[lh_pointer+1] > height[rh_pointer-1]:
+            if height[lh_pointer] > height[rh_pointer]:
                 rh_pointer -= 1
             else:
                 lh_pointer += 1
@@ -63,10 +48,7 @@ class Solution:
                 largest_area = new_container
 
         return largest_area
-
-
-                    
-print(Solution.maxArea([1,8,6,2,5,4,8,3,7]))        
+    
 
 
         
