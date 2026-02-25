@@ -68,8 +68,7 @@ def merge_sort(arr):
     merge_sort(right_array)
     _merge(left_array, right_array, arr)
 
-    return arr
-        
+    return arr      
 # Helper for merge_sort
 def _merge(left_array, right_array, array):
     
@@ -113,7 +112,7 @@ def quick_sort(arr: list[int], start: int, end: int):
     pivot= _partition(arr, start, end)
     quick_sort(arr, start, pivot -1)
     quick_sort(arr, pivot+1, end)
-
+# Helper for quick_sort
 def _partition(arr: list[int],start: int, end: int) -> int:
     # returns the location of the pivot
     pivot = arr[end]
@@ -128,4 +127,3 @@ def _partition(arr: list[int],start: int, end: int) -> int:
     i+=1
     arr[i], arr[end] = arr[end], arr[i]
     return i
-
