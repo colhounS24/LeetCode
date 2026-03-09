@@ -24,6 +24,6 @@ class Solution:
             else:
                 break
 
-        return head
+        return prev
 
         
